@@ -14,29 +14,14 @@ const RootStack = () => (
     screenOptions={{
       headerMode: 'float',
       headerTitleAlign: 'center',
-      cardStyle: {
-        backgroundColor: COLORS.SecondaryColor,
-        paddingHorizontal: 15,
-      },
+      cardStyle: styles.cardStyle,
       headerTintColor: COLORS.White,
       headerStyle: styles.headerStyle,
       headerTitleStyle: styles.headerTitleStyle,
     }}>
-    <Stack.Screen
-      name={Routes.HOME.name}
-      component={Home}
-      options={{headerShown: false}}
-    />
-    <Stack.Screen
-      name={Routes.DISCOVER.name}
-      component={Discover}
-      options={{title: Routes.DISCOVER.title}}
-    />
-    <Stack.Screen
-      name={Routes.PAYMENT.name}
-      component={Payment}
-      options={{title: Routes.PAYMENT.title}}
-    />
+    <Stack.Screen component={Home} {...Routes.HOME} />
+    <Stack.Screen component={Discover} {...Routes.DISCOVER} />
+    <Stack.Screen component={Payment} {...Routes.PAYMENT} />
   </Stack.Navigator>
 );
 
@@ -55,4 +40,8 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
   },
   headerTitleStyle: {color: COLORS.White},
+  cardStyle: {
+    backgroundColor: COLORS.SecondaryColor,
+    paddingHorizontal: 15,
+  },
 });

@@ -1,31 +1,30 @@
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, View, Text, Image, SafeAreaView} from 'react-native';
-import {IMAGES} from '../assests';
+import {StyleSheet, Text, View} from 'react-native';
 import {CarouselCards} from '../components';
-import {makeHttp} from '../api';
+import {getData} from '../apis';
 
 const Discover = () => {
   const [data, setData] = useState(null);
+
   useEffect(() => {
     const fetchGames = async () => {
-      const res = await makeHttp({
-        method: 'GET',
-        endpoint: '/getData',
-      });
-      console.log({res});
+      const res = await getData();
+      console.log(res);
       setData(res);
     };
+
     fetchGames();
   }, []);
 
-  if (data) {
-    return (
-      <SafeAreaView style={styles.container2}>
-        <CarouselCards data={data} />
-      </SafeAreaView>
-    );
+  if (!data) {
+    return <Text>No data</Text>;
   }
-  return null;
+
+  return (
+    <View style={styles.container2}>
+      <CarouselCards data={data} />
+    </View>
+  );
 };
 
 export default Discover;
