@@ -25,7 +25,7 @@ const Home = ({navigation}) => {
 export default Home;
 
 const styles = StyleSheet.create({
-  container: {flex: 1, justifyContent: 'space-around'},
+  container: {flex: 1, justifyContent: 'space-around', padding: 5},
   logo: {
     width: 250,
     height: 250,

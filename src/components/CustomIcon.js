@@ -1,15 +1,12 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
+import {COLORS} from '../styles';
 
-const CustomIcon = ({icon, focused, onPress}) => {
-  const iconName = focused ? icon : `${icon}-outline`;
-  const iconColor = focused ? 'white' : 'grey';
-  const iconSize = focused ? 35 : 30;
-
+const CustomIcon = ({icon, onPress}) => {
   return (
     <TouchableWithoutFeedback onPress={onPress}>
-      <Icon name={iconName} size={iconSize} color={iconColor} />
+      <Icon name={icon} size={30} color={COLORS.Grey} />
     </TouchableWithoutFeedback>
   );
 };

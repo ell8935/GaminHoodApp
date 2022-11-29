@@ -1,6 +1,5 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import {colors} from '@shared/styles';
 
 const ScreenWrapper = ({style, children}) => (
   <View style={[styles.container, style]}>{children}</View>

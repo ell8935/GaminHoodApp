@@ -2,10 +2,11 @@
 import React from 'react';
 import {StyleSheet, TouchableOpacity, Text} from 'react-native';
 import {COLORS} from '../styles';
+import CustomText from './CustomText';
 
 const CustomButton = ({title, onPress}) => (
   <TouchableOpacity style={styles.button} onPress={onPress}>
-    <Text style={styles.title}>{title}</Text>
+    <CustomText label={title} type={'big'} style={styles.buttonTitle} />
   </TouchableOpacity>
 );
 
@@ -22,5 +23,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: COLORS.PrimaryColor,
   },
-  title: {fontSize: 32, fontFamily: 'RussoOne-Regular'},
+  buttonTitle: {color: COLORS.LightBlack},
 });

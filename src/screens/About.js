@@ -18,26 +18,29 @@ const About = () => {
   };
 
   const submitForm = () => {
+    console.log(form);
     sendEmail(form);
   };
   return (
     <KeyboardAvoiding>
-      <ScreenWrapper style={styles.container}>
-        <CustomText label="Alpha stage, Free games offers from Steam and EpicGames, Any suggestion or fault please use the form below" />
-        <CustomText style={styles.title} label="Contact Us" type="title" />
-        <View style={styles.row}>
-          <TextField name="name" title="Name" onChange={handleSetForm} />
-          <TextField name="email" title="Email" onChange={handleSetForm} />
-        </View>
-        <TextField
-          multiline
-          name="body"
-          numberOfLines={3}
-          title="Description"
-          onChange={handleSetForm}
-        />
-        <CustomButton title="Submit" onPress={submitForm} />
-      </ScreenWrapper>
+      <ScrollView>
+        <ScreenWrapper style={styles.container}>
+          <CustomText label="Alpha stage, Free games offers from Steam and EpicGames, Any suggestion or fault please use the form below" />
+          <CustomText style={styles.title} label="Contact Us" type="title" />
+          <View style={styles.row}>
+            <TextField name="name" title="Name" onChange={handleSetForm} />
+            <TextField name="email" title="Email" onChange={handleSetForm} />
+          </View>
+          <TextField
+            multiline
+            name="body"
+            numberOfLines={3}
+            title="Description"
+            onChange={handleSetForm}
+          />
+          <CustomButton title="Submit" onPress={submitForm} />
+        </ScreenWrapper>
+      </ScrollView>
     </KeyboardAvoiding>
   );
 };

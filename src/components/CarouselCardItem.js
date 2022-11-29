@@ -2,7 +2,6 @@
 import React from 'react';
 import {
   View,
-  Text,
   StyleSheet,
   Dimensions,
   Image,
@@ -11,6 +10,7 @@ import {
 } from 'react-native';
 import {IMAGES} from '../assets';
 import {COLORS} from '../styles';
+import CustomText from './CustomText';
 export const SLIDER_WIDTH = Dimensions.get('window').width + 80;
 export const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.7);
 
@@ -24,8 +24,18 @@ const CarouselCardItem = ({item, index}) => {
         onPress={handlePress}
         style={styles.container}
         key={index}>
-        <Image source={{uri: item.img}} style={styles.image} />
-        <Text style={styles.header}>{item.Name}</Text>
+        <Image source={{uri: item.Image}} style={styles.image} />
+
+        <CustomText label={item.Name} type={'title'} style={styles.title} />
+        <CustomText label={item.Date} type={'normal'} />
+
+        <View style={styles.platformContainer}>
+          <CustomText label={'Get now from'} type={'subTitle'} />
+          <Image
+            style={styles.platformLogo}
+            source={item.Platform === 'steam' ? IMAGES.Steam : IMAGES.EpicGames}
+          />
+        </View>
       </TouchableOpacity>
       <Image source={IMAGES.Logo} style={styles.tinyLogo} />
     </View>
@@ -37,34 +47,15 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.PrimaryColor,
     borderRadius: 8,
     width: ITEM_WIDTH,
-    paddingBottom: 40,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 3,
-    },
-    shadowOpacity: 0.29,
-    shadowRadius: 4.65,
-    elevation: 7,
+    paddingBottom: 20,
   },
   image: {
-    width: ITEM_WIDTH,
-    height: 300,
+    width: '95%',
+    height: 200,
+    resizeMode: 'contain',
+    alignSelf: 'center',
   },
-  header: {
-    color: '#222',
-    fontSize: 28,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    paddingHorizontal: 5,
-  },
-  body: {
-    color: '#222',
-    fontSize: 18,
-    paddingLeft: 20,
-    paddingLeft: 20,
-    paddingRight: 20,
-  },
+  title: {paddingVertical: 10},
   tinyLogo: {
     width: 50,
     height: 50,
@@ -72,6 +63,19 @@ const styles = StyleSheet.create({
     marginTop: 20,
     position: 'absolute',
     top: '100%',
+  },
+  platformLogo: {
+    width: 50,
+    height: 50,
+    alignSelf: 'center',
+    marginTop: 20,
+    marginLeft: 10,
+    top: '-2%',
+  },
+  platformContainer: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'center',
   },
 });
 
