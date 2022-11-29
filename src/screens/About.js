@@ -9,6 +9,7 @@ import {
 } from '../components';
 import {useState} from 'react';
 import {sendEmail} from '../apis';
+import {COLORS} from '../styles';
 
 const About = () => {
   const [form, setForm] = useState({});
@@ -25,8 +26,12 @@ const About = () => {
     <KeyboardAvoiding>
       <ScrollView>
         <ScreenWrapper style={styles.container}>
-          <CustomText label="Alpha stage, Free games offers from Steam and EpicGames, Any suggestion or fault please use the form below" />
-          <CustomText style={styles.title} label="Contact Us" type="title" />
+          <CustomText
+            type={'normal'}
+            style={styles.text}
+            label="Alpha stage, Free games offers from Steam and EpicGames, Any suggestion or fault please use the form below"
+          />
+          <CustomText type={'title'} style={styles.title} label="Contact Us" />
           <View style={styles.row}>
             <TextField name="name" title="Name" onChange={handleSetForm} />
             <TextField name="email" title="Email" onChange={handleSetForm} />
@@ -49,6 +54,7 @@ export default About;
 
 const styles = StyleSheet.create({
   // container: {paddingBottom: 0},
-  title: {marginVertical: 40},
+  text: {color: COLORS.White},
+  title: {marginVertical: 40, color: COLORS.White},
   row: {flexDirection: 'row'},
 });

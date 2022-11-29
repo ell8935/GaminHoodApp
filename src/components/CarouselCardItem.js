@@ -24,20 +24,17 @@ const CarouselCardItem = ({item, index}) => {
         onPress={handlePress}
         style={styles.container}
         key={index}>
-        <Image source={{uri: item.Image}} style={styles.image} />
+        <View>
+          <Image source={{uri: item.Image}} style={styles.image} />
 
-        <CustomText label={item.Name} type={'title'} style={styles.title} />
-        <CustomText label={item.Date} type={'normal'} />
-
-        <View style={styles.platformContainer}>
-          <CustomText label={'Get now from'} type={'subTitle'} />
-          <Image
-            style={styles.platformLogo}
-            source={item.Platform === 'steam' ? IMAGES.Steam : IMAGES.EpicGames}
-          />
+          <CustomText label={item.Name} type={'title'} style={styles.title} />
         </View>
+        <CustomText label={item.Date} type={'normal'} />
       </TouchableOpacity>
-      <Image source={IMAGES.Logo} style={styles.tinyLogo} />
+      <Image
+        source={item.Platform === 'steam' ? IMAGES.Steam : IMAGES.EpicGames}
+        style={styles.tinyLogo}
+      />
     </View>
   );
 };
@@ -46,11 +43,13 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: COLORS.PrimaryColor,
     borderRadius: 8,
-    width: ITEM_WIDTH,
     paddingBottom: 20,
+    minHeight: 400,
+    justifyContent: 'space-around',
+    paddingHorizontal: 10,
   },
   image: {
-    width: '95%',
+    width: '100%',
     height: 200,
     resizeMode: 'contain',
     alignSelf: 'center',
@@ -63,19 +62,6 @@ const styles = StyleSheet.create({
     marginTop: 20,
     position: 'absolute',
     top: '100%',
-  },
-  platformLogo: {
-    width: 50,
-    height: 50,
-    alignSelf: 'center',
-    marginTop: 20,
-    marginLeft: 10,
-    top: '-2%',
-  },
-  platformContainer: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: 'center',
   },
 });
 
