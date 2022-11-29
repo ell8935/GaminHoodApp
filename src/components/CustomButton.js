@@ -14,10 +14,10 @@ export default CustomButton;
 
 const styles = StyleSheet.create({
   button: {
-    marginVertical: 30,
-    borderRadius: 15,
-    paddingVertical: 15,
     width: '100%',
+    borderRadius: 15,
+    marginVertical: 30,
+    paddingVertical: 15,
     alignSelf: 'center',
     alignItems: 'center',
     justifyContent: 'center',

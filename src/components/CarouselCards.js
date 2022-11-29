@@ -1,12 +1,14 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Dimensions} from 'react-native';
 import Carousel from 'react-native-snap-carousel';
-import CarouselCardItem, {SLIDER_WIDTH, ITEM_WIDTH} from './CarouselCardItem';
+import CarouselCardItem from './CarouselCardItem';
+
+const SLIDER_WIDTH = Dimensions.get('window').width + 80;
+const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.7);
 
 const CarouselCards = ({data}) => (
   <View>
-    <Text style={{color: 'white'}}>{Array.data}</Text>
     <Carousel
       layout="default"
       layoutCardOffset={9}

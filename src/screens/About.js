@@ -19,9 +19,9 @@ const About = () => {
   };
 
   const submitForm = () => {
-    console.log(form);
     sendEmail(form);
   };
+
   return (
     <KeyboardAvoiding>
       <ScrollView>

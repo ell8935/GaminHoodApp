@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {CarouselCards} from '../components';
+import {CarouselCards, CustomText} from '../components';
 import {getData} from '../apis';
 
 const Discover = () => {
@@ -9,15 +9,15 @@ const Discover = () => {
   useEffect(() => {
     const fetchGames = async () => {
       const res = await getData();
-      console.log(res.data);
+
       setData(res.data);
     };
 
     fetchGames();
   }, []);
-  console.log(data);
+
   if (!data) {
-    return <Text style={{color: 'white'}}>No data</Text>;
+    return <CustomText label={'No Free Games'} />;
   }
 
   return (

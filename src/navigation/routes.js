@@ -4,10 +4,6 @@ const Routes = {
     name: 'discover',
     options: {
       title: 'Discover',
-      headerShadowVisible: false,
-      headerTitleStyle: {
-        fontFamily: 'RussoOne-Regular',
-      },
     },
   },
   PAYMENT: {
@@ -20,10 +16,6 @@ const Routes = {
     name: 'about',
     options: {
       title: 'About',
-      headerShadowVisible: false,
-      headerTitleStyle: {
-        fontFamily: 'RussoOne-Regular',
-      },
     },
   },
 };

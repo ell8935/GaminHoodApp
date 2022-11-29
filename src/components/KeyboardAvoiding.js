@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   View,
-  Platform,
   Keyboard,
   StyleSheet,
   KeyboardAvoidingView,
@@ -10,9 +9,7 @@ import {
 
 const KeyboardAvoiding = ({children}) => {
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      style={styles.container}>
+    <KeyboardAvoidingView behavior="height" style={styles.container}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.container}>{children}</View>
       </TouchableWithoutFeedback>

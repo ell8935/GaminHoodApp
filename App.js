@@ -1,5 +1,6 @@
 import React from 'react';
 import {Platform, StatusBar} from 'react-native';
+import {ShowAd} from './src/components';
 import {StackNavigation} from './src/navigation';
 import {COLORS} from './src/styles';
 

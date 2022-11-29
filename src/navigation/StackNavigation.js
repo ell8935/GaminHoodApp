@@ -8,11 +8,13 @@ import Payment from '../screens/Payment';
 import About from '../screens/About';
 import Routes from './routes';
 import {COLORS} from '../styles';
+
 const Stack = createStackNavigator();
 
 const RootStack = () => (
   <Stack.Navigator
     screenOptions={{
+      headerShadowVisible: false,
       headerMode: 'float',
       headerTitleAlign: 'center',
       cardStyle: styles.cardStyle,
@@ -41,7 +43,7 @@ const styles = StyleSheet.create({
     borderColor: COLORS.White,
     borderBottomWidth: 2,
   },
-  headerTitleStyle: {color: COLORS.White},
+  headerTitleStyle: {color: COLORS.White, fontFamily: 'RussoOne-Regular'},
   cardStyle: {
     backgroundColor: COLORS.SecondaryColor,
     paddingHorizontal: 15,

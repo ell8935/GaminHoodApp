@@ -1,17 +1,17 @@
+import TextField from './TextField';
+import CustomText from './CustomText';
+import CustomIcon from './CustomIcon';
 import CustomButton from './CustomButton';
 import CarouselCards from './CarouselCards';
 import ScreenWrapper from './ScreenWrapper';
-import TextField from './TextField';
 import KeyboardAvoiding from './KeyboardAvoiding';
-import CustomText from './CustomText';
-import CustomIcon from './CustomIcon';
 
 export {
+  TextField,
+  CustomText,
   CustomIcon,
   CustomButton,
-  CarouselCards,
   ScreenWrapper,
-  TextField,
+  CarouselCards,
   KeyboardAvoiding,
-  CustomText,
 };
