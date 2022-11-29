@@ -5,6 +5,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Home from '../screens/Home';
 import Discover from '../screens/Discover';
 import Payment from '../screens/Payment';
+import About from '../screens/About';
 import Routes from './routes';
 import {COLORS} from '../styles';
 const Stack = createStackNavigator();
@@ -22,6 +23,7 @@ const RootStack = () => (
     <Stack.Screen component={Home} {...Routes.HOME} />
     <Stack.Screen component={Discover} {...Routes.DISCOVER} />
     <Stack.Screen component={Payment} {...Routes.PAYMENT} />
+    <Stack.Screen component={About} {...Routes.ABOUT} />
   </Stack.Navigator>
 );
 

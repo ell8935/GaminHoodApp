@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
   Linking,
 } from 'react-native';
-import {IMAGES} from '../assests';
+import {IMAGES} from '../assets';
 import {COLORS} from '../styles';
 export const SLIDER_WIDTH = Dimensions.get('window').width + 80;
 export const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.7);
@@ -26,7 +26,6 @@ const CarouselCardItem = ({item, index}) => {
         key={index}>
         <Image source={{uri: item.img}} style={styles.image} />
         <Text style={styles.header}>{item.Name}</Text>
-        <Text style={styles.body}>{item.Link}</Text>
       </TouchableOpacity>
       <Image source={IMAGES.Logo} style={styles.tinyLogo} />
     </View>
@@ -56,8 +55,8 @@ const styles = StyleSheet.create({
     color: '#222',
     fontSize: 28,
     fontWeight: 'bold',
-    paddingLeft: 20,
-    paddingTop: 20,
+    textAlign: 'center',
+    paddingHorizontal: 5,
   },
   body: {
     color: '#222',
@@ -66,7 +65,14 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     paddingRight: 20,
   },
-  tinyLogo: {width: 50, height: 50, alignSelf: 'center', marginTop: 20},
+  tinyLogo: {
+    width: 50,
+    height: 50,
+    alignSelf: 'center',
+    marginTop: 20,
+    position: 'absolute',
+    top: '100%',
+  },
 });
 
 export default CarouselCardItem;

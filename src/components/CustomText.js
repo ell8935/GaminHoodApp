@@ -1,9 +1,28 @@
 import React from 'react';
-import {StyleSheet, Text} from 'react-native';
+import {Text, StyleSheet} from 'react-native';
+import {colors} from '@shared/styles';
 
-const CustomText = ({title}) => <Text>{title}</Text>;
+const CustomText = ({label, style, type, ...props}) => {
+  return (
+    <Text style={[styles.normal, styles[type], style]} {...props}>
+      {label}
+    </Text>
+  );
+};
+
 export default CustomText;
 
 const styles = StyleSheet.create({
-  text: {fontSize: 40},
+  normal: {
+    fontSize: 18,
+    textAlign: 'center',
+    color: 'white',
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: '600',
+  },
+  subTitle: {
+    fontSize: 16,
+  },
 });

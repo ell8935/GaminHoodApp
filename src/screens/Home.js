@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, View, Image} from 'react-native';
-import {IMAGES} from '../assests';
-import {CustomButton} from '../components';
+import {IMAGES} from '../assets';
+import {CustomButton, CustomIcon} from '../components';
 import {Routes} from '../navigation';
 
 const Home = ({navigation}) => {
@@ -17,6 +17,7 @@ const Home = ({navigation}) => {
           onPress={() => navigate(Routes.DISCOVER.name)}
         />
       </View>
+      <CustomIcon icon={'email'} onPress={() => navigate(Routes.ABOUT.name)} />
     </View>
   );
 };

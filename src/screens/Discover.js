@@ -9,15 +9,15 @@ const Discover = () => {
   useEffect(() => {
     const fetchGames = async () => {
       const res = await getData();
-      console.log(res);
-      setData(res);
+      console.log(res.data);
+      setData(res.data);
     };
 
     fetchGames();
   }, []);
-
+  console.log(data);
   if (!data) {
-    return <Text>No data</Text>;
+    return <Text style={{color: 'white'}}>No data</Text>;
   }
 
   return (

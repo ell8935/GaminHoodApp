@@ -13,7 +13,7 @@ export default CustomButton;
 
 const styles = StyleSheet.create({
   button: {
-    marginBottom: 30,
+    marginVertical: 30,
     borderRadius: 15,
     paddingVertical: 15,
     width: '100%',
@@ -22,5 +22,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: COLORS.PrimaryColor,
   },
-  title: {fontSize: 32},
+  title: {fontSize: 32, fontFamily: 'RussoOne-Regular'},
 });
