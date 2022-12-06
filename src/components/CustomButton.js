@@ -23,5 +23,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: COLORS.PrimaryColor,
   },
-  buttonTitle: {color: COLORS.LightBlack},
+  buttonTitle: {color: COLORS.Black},
 });

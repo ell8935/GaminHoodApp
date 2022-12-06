@@ -6,7 +6,7 @@ import {COLORS} from '../styles';
 const CustomIcon = ({icon, onPress}) => {
   return (
     <TouchableWithoutFeedback onPress={onPress}>
-      <Icon name={icon} size={30} color={COLORS.Grey} />
+      <Icon name={icon} size={30} color={COLORS.PrimaryColor} />
     </TouchableWithoutFeedback>
   );
 };

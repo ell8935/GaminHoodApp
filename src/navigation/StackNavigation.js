@@ -46,6 +46,5 @@ const styles = StyleSheet.create({
   headerTitleStyle: {color: COLORS.White, fontFamily: 'RussoOne-Regular'},
   cardStyle: {
     backgroundColor: COLORS.SecondaryColor,
-    paddingHorizontal: 15,
   },
 });

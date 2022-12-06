@@ -5,6 +5,9 @@ import {CustomButton, CustomIcon} from '../components';
 import {Routes} from '../navigation';
 import {BannerAd, TestIds, BannerAdSize} from 'react-native-google-mobile-ads';
 import useAds from '../functions/useAds';
+import {TouchableOpacity} from 'react-native-gesture-handler';
+import {animations} from '../assets/lottie/index.js';
+import Lottie from 'lottie-react-native';
 
 const Home = ({navigation}) => {
   const {showAd} = useAds();
@@ -17,13 +20,23 @@ const Home = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <BannerAd unitId={TestIds.BANNER} size={BannerAdSize.FULL_BANNER} />
-      <Image source={IMAGES.Logo} style={styles.logo} />
-      <View>
-        <CustomButton title="Premium" />
-        <CustomButton title="Discover" onPress={handleDiscoveryNavigate} />
+      <View style={styles.headerContainer}>
+        <TouchableOpacity onPress={() => navigate(Routes.PAYMENT.name)}>
+          <Lottie
+            source={animations.DollarCoin}
+            style={styles.coin}
+            autoPlay
+            loop
+          />
+        </TouchableOpacity>
+        <CustomIcon
+          icon={'email'}
+          onPress={() => navigate(Routes.ABOUT.name)}
+        />
       </View>
-      <CustomIcon icon={'email'} onPress={() => navigate(Routes.ABOUT.name)} />
+      <Image source={IMAGES.Logo} style={styles.logo} />
+      <CustomButton title="Discover" onPress={handleDiscoveryNavigate} />
+      <BannerAd unitId={TestIds.BANNER} size={BannerAdSize.FULL_BANNER} />
     </View>
   );
 };
@@ -39,4 +52,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginBottom: 15,
   },
+  coin: {width: 50, height: 50, marginTop: -6},
+
+  headerContainer: {flexDirection: 'row', justifyContent: 'space-between'},
 });
