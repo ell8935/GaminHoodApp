@@ -5,6 +5,10 @@ import {StackNavigation} from './src/navigation';
 import {COLORS} from './src/styles';
 
 const App = () => {
+  useEffect(() => {
+    activateAdapty({sdkKey: 'public_live_Jzltkadr.LPjB4pt2axX6DzvPpyQ4'});
+  }, []);
+
   if (Platform.OS === 'android') {
     StatusBar.setBackgroundColor(COLORS.SecondaryColor);
   }
