@@ -4,7 +4,7 @@ const getData = () =>
   axios({
     method: 'GET',
     url: '/getData',
-    baseURL: 'http://localhost:5000',
+    baseURL: 'https://gaminhoodbackend.onrender.com',
   });
 
 const sendEmail = async data =>
@@ -12,6 +12,6 @@ const sendEmail = async data =>
     data,
     method: 'POST',
     url: '/sendEmail',
-    baseURL: 'http://localhost:5000',
+    baseURL: 'https://gaminhoodbackend.onrender.com',
   });
 export {getData, sendEmail};

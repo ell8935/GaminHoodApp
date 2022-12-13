@@ -21,14 +21,14 @@ const Home = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
-        <TouchableOpacity onPress={() => navigate(Routes.PAYMENT.name)}>
+        {/* <TouchableOpacity onPress={() => navigate(Routes.PAYMENT.name)}>
           <Lottie
             source={animations.DollarCoin}
             style={styles.coin}
             autoPlay
             loop
           />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
         <CustomIcon
           icon={'email'}
           onPress={() => navigate(Routes.ABOUT.name)}
@@ -36,7 +36,12 @@ const Home = ({navigation}) => {
       </View>
       <Image source={IMAGES.Logo} style={styles.logo} />
       <CustomButton title="Discover" onPress={handleDiscoveryNavigate} />
-      <BannerAd unitId={TestIds.BANNER} size={BannerAdSize.FULL_BANNER} />
+      <BannerAd
+        unitId={
+          __DEV__ ? TestIds.BANNER : 'ca-app-pub-9241365319577247/4617802283'
+        }
+        size={BannerAdSize.FULL_BANNER}
+      />
     </View>
   );
 };
