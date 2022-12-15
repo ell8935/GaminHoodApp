@@ -1,4 +1,4 @@
-package com.gaminghood.newarchitecture;
+package com.freegamesreact.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -19,9 +19,9 @@ import com.facebook.react.fabric.CoreComponentsRegistry;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.fabric.ReactNativeConfig;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.gaminghood.BuildConfig;
-import com.gaminghood.newarchitecture.components.MainComponentsRegistry;
-import com.gaminghood.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import com.freegamesreact.BuildConfig;
+import com.freegamesreact.newarchitecture.components.MainComponentsRegistry;
+import com.freegamesreact.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 

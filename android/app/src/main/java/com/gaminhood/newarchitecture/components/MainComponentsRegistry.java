@@ -1,4 +1,4 @@
-package com.gaminghood.newarchitecture.components;
+package com.freegamesreact.newarchitecture.components;
 
 import com.facebook.jni.HybridData;
 import com.facebook.proguard.annotations.DoNotStrip;

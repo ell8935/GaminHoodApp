@@ -1,4 +1,4 @@
-package com.gaminghood;
+package com.freegamesreact;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
