@@ -1,10 +1,12 @@
 import axios from 'axios';
 
+const baseURL = 'https://gaminhoodbackend.onrender.com';
+
 const getData = () =>
   axios({
     method: 'GET',
     url: '/getData',
-    baseURL: 'https://gaminhoodbackend.onrender.com',
+    baseURL: baseURL,
   });
 
 const sendEmail = async data =>
@@ -12,6 +14,6 @@ const sendEmail = async data =>
     data,
     method: 'POST',
     url: '/sendEmail',
-    baseURL: 'https://gaminhoodbackend.onrender.com',
+    baseURL: baseURL,
   });
 export {getData, sendEmail};

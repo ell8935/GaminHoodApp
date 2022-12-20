@@ -23,9 +23,9 @@ const About = () => {
   };
 
   return (
-    <KeyboardAvoiding>
-      <ScrollView>
-        <ScreenWrapper style={styles.container}>
+    <ScreenWrapper style={styles.container}>
+      <KeyboardAvoiding>
+        <ScrollView>
           <CustomText
             type={'normal'}
             style={styles.text}
@@ -44,17 +44,18 @@ const About = () => {
             onChange={handleSetForm}
           />
           <CustomButton title="Submit" onPress={submitForm} />
-        </ScreenWrapper>
-      </ScrollView>
-    </KeyboardAvoiding>
+        </ScrollView>
+      </KeyboardAvoiding>
+    </ScreenWrapper>
   );
 };
 
 export default About;
 
 const styles = StyleSheet.create({
-  // container: {paddingBottom: 0},
   text: {color: COLORS.White},
+
   title: {marginVertical: 40, color: COLORS.White},
+
   row: {flexDirection: 'row'},
 });

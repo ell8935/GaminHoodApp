@@ -39,17 +39,20 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     backgroundColor: COLORS.PrimaryColor,
   },
+
   image: {
     height: 200,
     width: '100%',
     alignSelf: 'center',
     resizeMode: 'contain',
   },
+
   title: {paddingVertical: 10},
+
   tinyLogo: {
     width: 50,
     height: 50,
-    marginTop: 20,
+    marginTop: 12,
     top: '100%',
     alignSelf: 'center',
     position: 'absolute',
