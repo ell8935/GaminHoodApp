@@ -10,6 +10,7 @@ import {
 import {useState} from 'react';
 import {sendEmail} from '../apis';
 import {COLORS} from '../styles';
+import {emailValidate} from '../functions';
 
 const About = () => {
   const [form, setForm] = useState({});
@@ -19,32 +20,46 @@ const About = () => {
   };
 
   const submitForm = () => {
-    sendEmail(form);
+    if (emailValidate(form.email)) {
+      sendEmail(form);
+      alert('Email sent successfully!');
+      setForm({});
+    } else {
+      alert('Email is not valid');
+    }
   };
-
   return (
     <ScreenWrapper style={styles.container}>
       <KeyboardAvoiding>
-        <ScrollView>
-          <CustomText
-            type={'normal'}
-            style={styles.text}
-            label="Alpha stage, Free games offers from Steam and EpicGames, Any suggestion or fault please use the form below"
-          />
-          <CustomText type={'title'} style={styles.title} label="Contact Us" />
-          <View style={styles.row}>
-            <TextField name="name" title="Name" onChange={handleSetForm} />
-            <TextField name="email" title="Email" onChange={handleSetForm} />
-          </View>
+        <CustomText
+          type={'normal'}
+          style={styles.text}
+          label="Alpha stage, Free games offers from Steam and EpicGames, Any suggestion or fault please use the form below"
+        />
+        <CustomText type={'title'} style={styles.title} label="Contact Us" />
+        <View style={styles.row}>
           <TextField
-            multiline
-            name="body"
-            numberOfLines={3}
-            title="Description"
+            name="name"
+            title="Name"
             onChange={handleSetForm}
+            value={form.name}
           />
-          <CustomButton title="Submit" onPress={submitForm} />
-        </ScrollView>
+          <TextField
+            name="email"
+            title="*Email"
+            onChange={handleSetForm}
+            value={form.email}
+          />
+        </View>
+        <TextField
+          multiline
+          name="body"
+          numberOfLines={3}
+          title="*Description"
+          onChange={handleSetForm}
+          value={form.body}
+        />
+        <CustomButton title="Submit" onPress={submitForm} />
       </KeyboardAvoiding>
     </ScreenWrapper>
   );

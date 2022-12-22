@@ -4,7 +4,7 @@ import React, {useState, useEffect} from 'react';
 import {BannerAd, TestIds, BannerAdSize} from 'react-native-google-mobile-ads';
 import {CustomButton, CustomIcon, ScreenWrapper} from '../components';
 import {StyleSheet, View, Image} from 'react-native';
-import useAds from '../functions/useAds';
+import {useAds} from '../functions';
 import {Routes} from '../navigation';
 import {IMAGES} from '../assets';
 import {getData} from '../apis';
