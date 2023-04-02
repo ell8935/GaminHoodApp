@@ -1,8 +1,7 @@
 import React from 'react';
+import {COLORS} from './src/shared/styles';
 import {Platform, StatusBar} from 'react-native';
-import {ShowAd} from './src/components';
 import {StackNavigation} from './src/navigation';
-import {COLORS} from './src/styles';
 
 const App = () => {
   if (Platform.OS === 'android') {
