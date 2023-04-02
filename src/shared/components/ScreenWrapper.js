@@ -1,7 +1,7 @@
 import React from 'react';
+import {COLORS} from '../styles';
 import {StyleSheet} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import {COLORS} from '../styles';
 
 const ScreenWrapper = ({style, children}) => (
   <LinearGradient

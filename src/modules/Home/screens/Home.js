@@ -1,14 +1,16 @@
-// import {animations} from '../assets/lottie/index.js';
-// import Lottie from 'lottie-react-native';
-import React, {useState, useEffect} from 'react';
+import Lottie from 'lottie-react-native';
+import React from 'react';
+import {IMAGES} from '../../../assets';
+import {Routes} from '../../../navigation';
+import {COLORS} from '../../../shared/styles';
+import {getData} from '../../../shared/api/apis';
+import useAds from '../../../shared/hooks/useAds';
+import {StyleSheet, View, Image, TouchableOpacity} from 'react-native';
+import CustomIcon from '../../../shared/components/CustomIcon';
+import CustomButton from '../../../shared/components/CustomButton';
+import ScreenWrapper from '../../../shared/components/ScreenWrapper';
 import {BannerAd, TestIds, BannerAdSize} from 'react-native-google-mobile-ads';
-import {CustomButton, CustomIcon, ScreenWrapper} from '../components';
-import {StyleSheet, View, Image} from 'react-native';
-import {useAds} from '../functions';
-import {Routes} from '../navigation';
-import {IMAGES} from '../assets';
-import {getData} from '../apis';
-import {COLORS} from '../styles';
+import {animations} from '../../../assets/lottie';
 
 const Home = ({navigation}) => {
   const {showAd} = useAds();
@@ -23,20 +25,22 @@ const Home = ({navigation}) => {
   return (
     <ScreenWrapper>
       <View style={styles.container}>
-        {/* <TouchableOpacity onPress={() => navigate(Routes.PAYMENT.name)}>
-          <Lottie
-          source={animations.DollarCoin}
-          style={styles.coin}
-          autoPlay
-          loop
-          />
-        </TouchableOpacity> */}
+        <View style={styles.headerContainer}>
+          <TouchableOpacity onPress={() => navigate(Routes.PAYMENT.name)}>
+            <Lottie
+              source={animations.DollarCoin}
+              style={styles.coin}
+              autoPlay
+              loop
+            />
+          </TouchableOpacity>
 
-        <CustomIcon
-          icon={'email-plus-outline'}
-          onPress={() => navigate(Routes.ABOUT.name)}
-          style={styles.smallIcon}
-        />
+          <CustomIcon
+            icon={'email-plus-outline'}
+            onPress={() => navigate(Routes.ABOUT.name)}
+            style={styles.smallIcon}
+          />
+        </View>
         <Image source={IMAGES.Logo} style={styles.logo} />
         <CustomButton
           title="Discover"
@@ -70,8 +74,13 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginBottom: 15,
   },
-
+  headerContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
   smallIcon: {paddingHorizontal: 20},
+  coin: {width: 50, height: 50, marginTop: -6},
 
   discoverButton: {
     borderTopLeftRadius: 40,

@@ -1,8 +1,7 @@
-/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {StyleSheet, TouchableOpacity, Text} from 'react-native';
 import {COLORS} from '../styles';
 import CustomText from './CustomText';
+import {StyleSheet, TouchableOpacity} from 'react-native';
 
 const CustomButton = ({title, onPress, style, type}) => (
   <TouchableOpacity

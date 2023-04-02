@@ -1,9 +1,9 @@
-/* eslint-disable no-dupe-keys */
 import React from 'react';
+import Price from './Price';
+import {IMAGES} from '../../../assets';
+import {COLORS} from '../../../shared/styles';
+import CustomText from '../../../shared/components/CustomText';
 import {View, StyleSheet, Image, TouchableOpacity, Linking} from 'react-native';
-import {IMAGES} from '../assets';
-import {COLORS} from '../styles';
-import CustomText from './CustomText';
 
 const CarouselCardItem = ({item, index}) => {
   const handlePress = () => {
@@ -19,13 +19,20 @@ const CarouselCardItem = ({item, index}) => {
         <View>
           <Image source={{uri: item.Image}} style={styles.image} />
           <CustomText label={item.Name} type={'title'} style={styles.title} />
+
+          <Price price={item.OriginalPrice} />
+          <View style={styles.logoContainer}>
+            <CustomText label={'Get it from '} />
+            <Image
+              source={
+                item.Platform === 'steam' ? IMAGES.Steam : IMAGES.EpicGames
+              }
+              style={styles.tinyLogo}
+            />
+          </View>
         </View>
         <CustomText label={item.Date} type={'normal'} />
       </TouchableOpacity>
-      <Image
-        source={item.Platform === 'steam' ? IMAGES.Steam : IMAGES.EpicGames}
-        style={styles.tinyLogo}
-      />
     </View>
   );
 };
@@ -36,7 +43,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingBottom: 20,
     paddingHorizontal: 10,
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     backgroundColor: COLORS.PrimaryColor,
   },
 
@@ -47,15 +54,21 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
 
-  title: {paddingVertical: 10},
+  text: {paddingTop: 20},
+
+  title: {paddingBottom: 15},
+
+  logoContainer: {
+    paddingTop: 10,
+    display: 'flex',
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
 
   tinyLogo: {
-    width: 50,
-    height: 50,
-    marginTop: 12,
-    top: '100%',
-    alignSelf: 'center',
-    position: 'absolute',
+    width: 40,
+    height: 40,
   },
 });
 

@@ -1,8 +1,9 @@
+import {COLORS} from '../../../shared/styles';
+import {getData} from '../../../shared/api/apis';
 import React, {useEffect, useState} from 'react';
-import {CarouselCards, ScreenWrapper} from '../components';
+import CarouselCards from '../components/CarouselCards';
 import {ActivityIndicator, StyleSheet, View} from 'react-native';
-import {COLORS} from '../styles';
-import {getData} from '../apis';
+import ScreenWrapper from '../../../shared/components/ScreenWrapper';
 
 const Discover = () => {
   const [data, setData] = useState(null);
@@ -10,6 +11,7 @@ const Discover = () => {
   useEffect(() => {
     const fetchGames = async () => {
       const res = await getData();
+      console.log(res.data);
 
       setData(res.data);
     };

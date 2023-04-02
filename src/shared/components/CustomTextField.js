@@ -1,12 +1,21 @@
 import React from 'react';
-import {StyleSheet, TextInput, View} from 'react-native';
 import {COLORS} from '../styles';
 import CustomText from './CustomText';
+import {StyleSheet, TextInput, View} from 'react-native';
 
-const TextField = ({name, title, value, style, onChange, focused, ...rest}) => {
+const CustomTextField = ({
+  name,
+  title,
+  value,
+  style,
+  onChange,
+  focused,
+  ...rest
+}) => {
   const handleChange = val => {
     onChange(val, name);
   };
+
   return (
     <View style={styles.container}>
       <CustomText label={title} style={styles.title} />
@@ -20,11 +29,13 @@ const TextField = ({name, title, value, style, onChange, focused, ...rest}) => {
   );
 };
 
-export default TextField;
+export default CustomTextField;
 
 const styles = StyleSheet.create({
   container: {flex: 1},
+
   title: {color: COLORS.White},
+
   input: {
     margin: 10,
     fontSize: 20,

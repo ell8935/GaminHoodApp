@@ -1,13 +1,13 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import Routes from './routes';
+import {StyleSheet} from 'react-native';
+import {COLORS} from '../shared/styles';
+import Home from '../modules/Home/screens/Home';
+import About from '../modules/About/screens/About';
+import Payment from '../modules/Payment/screens/Payment';
+import Discover from '../modules/Discover/screens/Discover';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import Home from '../screens/Home';
-import Discover from '../screens/Discover';
-import Payment from '../screens/Payment';
-import About from '../screens/About';
-import Routes from './routes';
-import {COLORS} from '../styles';
 
 const Stack = createStackNavigator();
 
@@ -43,7 +43,9 @@ const styles = StyleSheet.create({
     borderColor: COLORS.White,
     borderBottomWidth: 2,
   },
+
   headerTitleStyle: {color: COLORS.White, fontFamily: 'RussoOne-Regular'},
+
   cardStyle: {
     backgroundColor: COLORS.SecondaryColor,
   },

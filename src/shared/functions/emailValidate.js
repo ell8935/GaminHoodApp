@@ -1,6 +1,5 @@
-function emailValidate(email) {
-  console.log(email);
+const emailValidate = email => {
   return /\S+@\S+\.\S+/.test(email);
-}
+};
 
 export default emailValidate;

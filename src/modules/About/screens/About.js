@@ -1,16 +1,14 @@
 import React from 'react';
-import {ScrollView, StyleSheet, View} from 'react-native';
-import {
-  CustomButton,
-  CustomText,
-  TextField,
-  ScreenWrapper,
-  KeyboardAvoiding,
-} from '../components';
 import {useState} from 'react';
-import {sendEmail} from '../apis';
-import {COLORS} from '../styles';
-import {emailValidate} from '../functions';
+import {StyleSheet, View} from 'react-native';
+import {COLORS} from '../../../shared/styles';
+import {sendEmail} from '../../../shared/api/apis';
+import CustomText from '../../../shared/components/CustomText';
+import CustomButton from '../../../shared/components/CustomButton';
+import emailValidate from '../../../shared/functions/emailValidate';
+import ScreenWrapper from '../../../shared/components/ScreenWrapper';
+import CustomTextField from '../../../shared/components/CustomTextField';
+import KeyboardAvoiding from '../../../shared/components/KeyboardAvoiding';
 
 const About = () => {
   const [form, setForm] = useState({});
@@ -28,6 +26,7 @@ const About = () => {
       alert('Email is not valid');
     }
   };
+
   return (
     <ScreenWrapper style={styles.container}>
       <KeyboardAvoiding>
@@ -38,20 +37,20 @@ const About = () => {
         />
         <CustomText type={'title'} style={styles.title} label="Contact Us" />
         <View style={styles.row}>
-          <TextField
+          <CustomTextField
             name="name"
             title="Name"
             onChange={handleSetForm}
             value={form.name}
           />
-          <TextField
+          <CustomTextField
             name="email"
             title="*Email"
             onChange={handleSetForm}
             value={form.email}
           />
         </View>
-        <TextField
+        <CustomTextField
           multiline
           name="body"
           numberOfLines={3}
