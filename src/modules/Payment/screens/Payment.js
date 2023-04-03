@@ -1,5 +1,7 @@
 import React from 'react';
+import Lottie from 'lottie-react-native';
 import {COLORS} from '../../../shared/styles';
+import {animations} from '../../../assets/lottie';
 import CustomText from '../../../shared/components/CustomText';
 import {Linking, StyleSheet, ScrollView, View} from 'react-native';
 import CustomButton from '../../../shared/components/CustomButton';
@@ -19,7 +21,15 @@ const Donation = () => {
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.container}>
           <CustomText label={paragraph} type={'title'} style={styles.text} />
-          <CustomButton onPress={handleDonation} title="Buy me a coffee" />
+          <View style={styles.buttonContainer}>
+            <Lottie
+              source={animations.Coffee}
+              style={styles.coffee}
+              autoPlay
+              loop
+            />
+            <CustomButton onPress={handleDonation} title="Buy me a coffee" />
+          </View>
         </View>
       </ScrollView>
     </ScreenWrapper>
@@ -31,8 +41,22 @@ export default Donation;
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
+    alignItems: 'center',
     justifyContent: 'space-around',
   },
 
   text: {color: COLORS.White},
+
+  buttonContainer: {
+    padding: 10,
+    position: 'relative',
+  },
+
+  coffee: {
+    left: -30,
+    bottom: 20,
+    width: 200,
+    height: 200,
+    position: 'absolute',
+  },
 });

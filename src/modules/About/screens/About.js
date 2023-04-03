@@ -1,8 +1,10 @@
 import React from 'react';
 import {useState} from 'react';
-import {StyleSheet, View} from 'react-native';
+import Lottie from 'lottie-react-native';
 import {COLORS} from '../../../shared/styles';
+import {animations} from '../../../assets/lottie';
 import {sendEmail} from '../../../shared/api/apis';
+import {ScrollView, StyleSheet, View} from 'react-native';
 import CustomText from '../../../shared/components/CustomText';
 import CustomButton from '../../../shared/components/CustomButton';
 import emailValidate from '../../../shared/functions/emailValidate';
@@ -29,37 +31,39 @@ const About = () => {
 
   return (
     <ScreenWrapper style={styles.container}>
-      <KeyboardAvoiding>
-        <CustomText
-          type={'normal'}
-          style={styles.text}
-          label="Alpha stage, Free games offers from Steam and EpicGames, Any suggestion or fault please use the form below"
-        />
-        <CustomText type={'title'} style={styles.title} label="Contact Us" />
-        <View style={styles.row}>
-          <CustomTextField
-            name="name"
-            title="Name"
-            onChange={handleSetForm}
-            value={form.name}
+      <ScrollView>
+        <KeyboardAvoiding>
+          <CustomText
+            type={'normal'}
+            style={styles.text}
+            label="Get free games from Steam and EpicGames with this app! It's in alpha stage, so we'd love to hear your suggestions or feedback."
           />
+          <CustomText type={'title'} style={styles.title} label="Contact Us" />
           <CustomTextField
             name="email"
-            title="*Email"
+            title="Your Email"
             onChange={handleSetForm}
             value={form.email}
           />
-        </View>
-        <CustomTextField
-          multiline
-          name="body"
-          numberOfLines={3}
-          title="*Description"
-          onChange={handleSetForm}
-          value={form.body}
+          <CustomTextField
+            multiline
+            name="body"
+            numberOfLines={3}
+            title="Description"
+            onChange={handleSetForm}
+            value={form.body}
+          />
+        </KeyboardAvoiding>
+      </ScrollView>
+      <View style={styles.buttonContainer}>
+        <Lottie
+          source={animations.Mailbox}
+          style={styles.mailbox}
+          autoPlay
+          loop
         />
         <CustomButton title="Submit" onPress={submitForm} />
-      </KeyboardAvoiding>
+      </View>
     </ScreenWrapper>
   );
 };
@@ -72,4 +76,17 @@ const styles = StyleSheet.create({
   title: {marginVertical: 40, color: COLORS.White},
 
   row: {flexDirection: 'row'},
+
+  buttonContainer: {
+    position: 'relative',
+    padding: 10,
+  },
+
+  mailbox: {
+    width: 150,
+    height: 150,
+    position: 'absolute',
+    bottom: 40,
+    left: 20,
+  },
 });

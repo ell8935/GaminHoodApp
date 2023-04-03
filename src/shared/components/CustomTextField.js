@@ -40,10 +40,9 @@ const styles = StyleSheet.create({
     margin: 10,
     fontSize: 20,
     borderWidth: 1,
-    borderRadius: 5,
-    borderColor: COLORS.PrimaryColor,
+    borderRadius: 10,
     color: COLORS.White,
-    paddingHorizontal: 5,
     textAlignVertical: 'top',
+    borderColor: COLORS.PrimaryColor,
   },
 });

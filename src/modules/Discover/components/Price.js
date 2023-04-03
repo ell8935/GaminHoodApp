@@ -31,11 +31,11 @@ const styles = StyleSheet.create({
 
   amountText: {
     padding: 10,
-    borderLeftWidth: 2,
+    borderLeftWidth: 4,
+    color: COLORS.White,
+    borderColor: COLORS.Grey,
     borderTopRightRadius: 10,
     borderBottomRightRadius: 10,
-    color: COLORS.PrimaryColor,
-    borderColor: COLORS.LightBlack,
     backgroundColor: COLORS.SecondaryColor,
   },
 
@@ -45,15 +45,16 @@ const styles = StyleSheet.create({
     width: 40,
     borderBottomWidth: 2,
     position: 'absolute',
-    transform: [{rotate: '170deg'}],
-    borderBottomColor: COLORS.PrimaryColor,
+    transform: [{rotate: '15deg'}],
+    borderBottomColor: COLORS.Grey,
   },
 
   percentage: {
     padding: 10,
+    color: COLORS.White,
+
     borderTopLeftRadius: 10,
     borderBottomLeftRadius: 10,
-    color: COLORS.PrimaryColor,
     backgroundColor: COLORS.SecondaryColor,
   },
 });

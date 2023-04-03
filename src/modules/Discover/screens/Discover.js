@@ -1,8 +1,8 @@
-import {COLORS} from '../../../shared/styles';
+import {StyleSheet, View} from 'react-native';
 import {getData} from '../../../shared/api/apis';
 import React, {useEffect, useState} from 'react';
+import Loader from '../../../shared/components/Loader';
 import CarouselCards from '../components/CarouselCards';
-import {ActivityIndicator, StyleSheet, View} from 'react-native';
 import ScreenWrapper from '../../../shared/components/ScreenWrapper';
 
 const Discover = () => {
@@ -11,8 +11,6 @@ const Discover = () => {
   useEffect(() => {
     const fetchGames = async () => {
       const res = await getData();
-      console.log(res.data);
-
       setData(res.data);
     };
 
@@ -20,18 +18,12 @@ const Discover = () => {
   }, []);
 
   if (!data) {
-    return (
-      <ScreenWrapper>
-        <View style={styles.loader}>
-          <ActivityIndicator size="large" color={COLORS.PrimaryColor} />
-        </View>
-      </ScreenWrapper>
-    );
+    return <Loader />;
   }
 
   return (
     <ScreenWrapper>
-      <View style={styles.container2}>
+      <View style={styles.container}>
         <CarouselCards data={data} />
       </View>
     </ScreenWrapper>
@@ -41,20 +33,13 @@ const Discover = () => {
 export default Discover;
 
 const styles = StyleSheet.create({
-  container: {flex: 1, justifyContent: 'flex-end'},
-
   header: {color: 'white'},
 
   tinyLogo: {width: 50, height: 50, alignSelf: 'center', marginBottom: 20},
 
-  container2: {
-    alignItems: 'center',
-    justifyContent: 'center',
+  container: {
     padding: 50,
-  },
-
-  loader: {
-    flex: 1,
+    alignItems: 'center',
     justifyContent: 'center',
   },
 });
