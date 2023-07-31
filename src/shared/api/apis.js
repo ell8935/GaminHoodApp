@@ -1,13 +1,11 @@
 import axios from 'axios';
-import {API_URL} from '@env';
 
-const baseURL = API_URL;
+const baseURL = 'https://gaminhoodbackend.onrender.com/';
 
 const getData = () =>
   axios({
     method: 'GET',
-    url: '/',
-    baseURL: baseURL,
+    url: baseURL,
   });
 
 const sendEmail = async data =>

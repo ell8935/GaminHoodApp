@@ -1,7 +1,8 @@
-import {useEffect} from 'react';
+import {useEffect, useState} from 'react';
 import {TestIds, useInterstitialAd} from 'react-native-google-mobile-ads';
 
 const useAds = () => {
+  const [shouldShowAd, setShouldShowAd] = useState(false);
   const {isLoaded, load, show} = useInterstitialAd(
     __DEV__ ? TestIds.INTERSTITIAL : 'ca-app-pub-9241365319577247/7307301263',
     {
@@ -13,10 +14,14 @@ const useAds = () => {
     load();
   }, [load]);
 
-  const showAd = () => {
-    if (isLoaded) {
+  useEffect(() => {
+    if (shouldShowAd && isLoaded) {
       show();
     }
+  }, [shouldShowAd, isLoaded, show]);
+
+  const showAd = async () => {
+    setShouldShowAd(true);
   };
 
   return {showAd};

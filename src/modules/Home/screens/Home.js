@@ -16,8 +16,8 @@ const Home = ({navigation}) => {
   const {showAd} = useAds();
   const {navigate} = navigation;
 
-  const handleDiscoveryNavigate = () => {
-    showAd();
+  const handleDiscoveryNavigate = async () => {
+    await showAd();
     navigate(Routes.DISCOVER.name);
   };
   getData(); //wake up server

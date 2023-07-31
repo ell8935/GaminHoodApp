@@ -7,7 +7,7 @@ import {View, StyleSheet, Image, TouchableOpacity, Linking} from 'react-native';
 
 const CarouselCardItem = ({item, index}) => {
   const handlePress = () => {
-    Linking.openURL(item.Link);
+    Linking.openURL(item.link);
   };
 
   return (
@@ -17,21 +17,21 @@ const CarouselCardItem = ({item, index}) => {
         style={styles.container}
         key={index}>
         <View>
-          <Image source={{uri: item.Image}} style={styles.image} />
-          <CustomText label={item.Name} type={'title'} style={styles.title} />
+          <Image source={{uri: item.image}} style={styles.image} />
+          <CustomText label={item.name} type={'title'} style={styles.title} />
 
-          <Price price={item.OriginalPrice} />
+          <Price price={item.price} />
           <View style={styles.logoContainer}>
             <CustomText label={'Get it from '} />
             <Image
               source={
-                item.Platform === 'steam' ? IMAGES.Steam : IMAGES.EpicGames
+                item.platform === 'steam' ? IMAGES.Steam : IMAGES.EpicGames
               }
               style={styles.tinyLogo}
             />
           </View>
         </View>
-        <CustomText label={item.Date} type={'normal'} />
+        <CustomText label={item.date} type={'normal'} />
       </TouchableOpacity>
     </View>
   );
